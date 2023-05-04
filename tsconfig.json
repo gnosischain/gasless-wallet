@@ -1,5 +1,7 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["es2020"],
     "noImplicitAny": false,
@@ -11,6 +13,9 @@
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types"],
     "declaration": true,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "outDir": "dist"
   }
 }
+
+

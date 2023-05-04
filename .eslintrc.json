@@ -3,6 +3,12 @@
   "env": {
     "node": true
   },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "12",
+    "sourceType": "module"
+  },
+  "ignorePatterns": ["src/contracts/*", "dist/*"],
   "plugins": ["@typescript-eslint", "prettier", "import"],
   "extends": [
     "eslint:recommended",
