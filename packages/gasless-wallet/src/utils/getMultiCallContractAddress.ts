@@ -30,6 +30,8 @@ export const getMultiCallContractAddress = (chainId: number) => {
       return "0x215c8e18Ba753893288Af2635152C1F3c1955bf7";
     case 421613:
       return "0xCf8EDB3333Fae73b23f689229F4De6Ac95d1f707";
+    case 29313331:
+      return "0xAFA7De854fC0F7eAaC671C339ce1EF7d702e624f";
     default:
       throw new Error(
         `MultiCall Contract is not available on chainId[${chainId}]`

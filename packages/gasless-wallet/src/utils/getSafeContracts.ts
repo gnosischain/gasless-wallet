@@ -96,6 +96,12 @@ export const getSafeContractAddresses = (chainId: number): SafeAddressBook => {
         gnosisSafe: "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
         gnosisSafeProxyFactory: "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2",
       };
+    case 29313331:
+      return {
+        fallbackHandler: "0x87A19d769D875964E9Cd41dDBfc397B2543764E6",
+        gnosisSafe: "0xB30fa0F994716779f11D7C32B897413260b3f59C",
+        gnosisSafeProxyFactory: "0x447642c23973094d49BD7f0BeFaffa7a06b9dA0A",
+      };
     default:
       throw new Error(
         `Gnosis Safe Contracts are not yet available on chainId[${chainId}] on the Gasless Wallet`
