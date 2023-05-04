@@ -3,8 +3,8 @@
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "lib": ["es2020"],
-    "target": "es2020",
+    "lib": ["ES2015"],
+    "target": "es2015",
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,

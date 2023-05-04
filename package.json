@@ -1,6 +1,6 @@
 {
   "name": "@gnosischain/gasless-wallet",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "SDK for Gasless Wallet",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
