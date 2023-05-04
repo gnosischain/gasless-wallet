@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
+  // "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
