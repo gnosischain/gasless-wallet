@@ -11,7 +11,7 @@ env:
 
 jobs:
   push_to_registry:
-    name: Push Docker image to Docker Hub
+    name: Publish NPM Package
     runs-on: ubuntu-latest
     env:
       RELEASE_VERSION: 4.1.8
