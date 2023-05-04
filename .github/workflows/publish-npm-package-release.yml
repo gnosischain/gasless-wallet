@@ -4,7 +4,6 @@ name: Publish NPM Package
 on:
   push:
     branches:
-      - bicocca
       - gnosispay
 
 env:
