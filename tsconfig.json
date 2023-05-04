@@ -4,6 +4,7 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["es2020"],
+    "target": "es2020",
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
