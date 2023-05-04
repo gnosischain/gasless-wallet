@@ -1,5 +1,5 @@
 {
-  "name": "@gelatonetwork/gasless-wallet",
+  "name": "@gnosischain/gasless-wallet",
   "version": "0.0.4",
   "description": "SDK for Gasless Wallet",
   "main": "dist/index.js",

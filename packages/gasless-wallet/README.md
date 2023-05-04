@@ -4,9 +4,9 @@ GaslessWallet is the main class where the developers can create smart contract w
 
 ## Installation
 
-`yarn add @gelatonetwork/gasless-wallet`
+`yarn add @gnosischain/gasless-wallet`
 
-`npm install @gelatonetwork/gasless-wallet`
+`npm install @gnosischain/gasless-wallet`
 
 ## Usage
 
@@ -16,7 +16,7 @@ GaslessWallet is the main class where the developers can create smart contract w
 import {
   GaslessWallet,
   GaslessWalletConfig,
-} from "@gelatonetwork/gasless-wallet";
+} from "@gnosischain/gasless-wallet";
 import { ethers } from "ethers";
 ```
 
