@@ -28,6 +28,7 @@ type EoaProvider =
 
 export interface GaslessWalletConfig {
   apiKey?: string;
+  identifier?: number;
 }
 export class GaslessWallet {
   readonly #provider: ethers.providers.Web3Provider;
@@ -35,6 +36,7 @@ export class GaslessWallet {
   #address: string | undefined;
   #chainId: number | undefined;
   #apiKey: string | undefined;
+  #identifier: number | undefined;
   #isInitiated = false;
   #safeAddressBook: SafeAddressBook | undefined;
 
@@ -55,6 +57,7 @@ export class GaslessWallet {
     this.#gelatoRelay = new GelatoRelay();
     this.#provider = new ethers.providers.Web3Provider(eoaProvider);
     this.#apiKey = config.apiKey;
+    this.#identifier = config.identifier;
   }
 
   /**
@@ -79,7 +82,13 @@ export class GaslessWallet {
       );
     }
     this.#safeAddressBook = getSafeContractAddresses(this.#chainId);
-    this.#address = await this._calculateSmartWalletAddress();
+    if (!this.#identifier) {
+      throw new GaslessWalletError(
+        ErrorTypes.WalletNotInitiated,
+        `User identifier not provided`
+      );
+    }
+    this.#address = await this.calculateSmartWalletAddress(this.#identifier);
     if (!this.#address) {
       throw new GaslessWalletError(
         ErrorTypes.WalletNotInitiated,
@@ -281,7 +290,7 @@ export class GaslessWallet {
     );
   }
 
-  private async _calculateSmartWalletAddress(): Promise<string> {
+  public async calculateSmartWalletAddress(identifier: number): Promise<string> {
     const deploymentCode = ethers.utils.solidityPack(
       ["bytes", "uint256"],
       [
@@ -292,16 +301,17 @@ export class GaslessWallet {
         this.#safeAddressBook!.gnosisSafe,
       ]
     );
-    const salt = ethers.utils.solidityKeccak256(
-      ["bytes32", "uint256"],
-      [
-        ethers.utils.solidityKeccak256(
-          ["bytes"],
-          [await this._getSafeInitializer()]
-        ),
-        SALT,
-      ]
-    );
+    // const salt = ethers.utils.solidityKeccak256(
+    //   ["bytes32", "uint256"],
+    //   [
+    //     ethers.utils.solidityKeccak256(
+    //       ["bytes"],
+    //       [await this._getSafeInitializer()]
+    //     ),
+    //     SALT,
+    //   ]
+    // );
+    const salt = ethers.utils.solidityKeccak256(["uint256"], [identifier]);
     return ethers.utils.getCreate2Address(
       this.#safeAddressBook!.gnosisSafeProxyFactory,
       salt,
